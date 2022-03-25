@@ -7,6 +7,6 @@ export default {
   component: Chat,
 } as ComponentMeta<typeof Chat>;
 
-export const Default: ComponentStory<typeof Chat> = () => {
-  return <Chat />;
+export const Default: ComponentStory<typeof Chat> = ({ size }) => {
+  return <Chat size={size} />;
 };

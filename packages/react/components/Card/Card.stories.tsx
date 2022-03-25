@@ -8,5 +8,5 @@ export default {
 } as ComponentMeta<typeof Card>;
 
 export const Default: ComponentStory<typeof Card> = () => {
-  return <Card />;
+  return <Card width={200} height={300} />;
 };

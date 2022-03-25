@@ -4,9 +4,15 @@ Ui Kits to use Beoble's web3 components like beoble profile, wallet-to-wallet ch
 
 See further below to learn how to use beoble in your Dapp!
 
-
 This package contains
+
 - react
+
+## Demo & Examples
+
+[Storybook](https://kryptonium-group.github.io/beoble-ui-kit)
+
+Demo (Comming Soon)
 
 ## Getting Started
 
@@ -20,7 +26,7 @@ yarn run storybook
 ## Usage
 
 ```typescript
-import {Chat} from "@kryptonioum/beoble-ui-kit
+import { Chat } from "@kryptonioum/beoble-ui-kit
 
 const YOUR_COMPONENT = () => {
   return <Chat />
@@ -29,11 +35,11 @@ const YOUR_COMPONENT = () => {
 
 ## Prerequisites
 
-## Demo & Examples
+## Dependencies
 
-[Storybook](https://kryptonium-finance.github.io/beoble-ui-kit/)
-
-Demo (Comming Soon)
+- react-spring
+- react-icons
+- styled-component & styled-system
 
 ## Contribution
 

@@ -3,7 +3,7 @@
 }
 
 .main {
-  min-height: 100vh;
+  min-height: calc(100vh - 93.61px);
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -104,8 +104,8 @@
 }
 
 .logo {
-  height: 1em;
-  margin-left: 0.5rem;
+  height: 28.61px;
+  margin-left: 8px;
 }
 
 @media (max-width: 600px) {

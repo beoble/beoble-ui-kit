@@ -10,7 +10,6 @@ import {
   border,
   ColorProps,
 } from "styled-system";
-import Button from "../Button";
 import { ICardProps } from "./type";
 
 const CardContainer = styled.div<

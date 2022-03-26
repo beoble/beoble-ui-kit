@@ -1,0 +1,1 @@
+{"version":3,"file":"types.d.ts","sourceRoot":"","sources":["../../../../packages/react/components/Avatar/types.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,YAAY;IAC3B,IAAI,EAAE,MAAM,GAAG,MAAM,CAAC;IACtB,KAAK,CAAC,EAAE,KAAK,CAAC;IACd,GAAG,CAAC,EAAE,MAAM,CAAC;IACb,GAAG,CAAC,EAAE,MAAM,CAAC;CACd;AAED,oBAAY,KAAK,GAAG,QAAQ,GAAG,QAAQ,CAAC"}

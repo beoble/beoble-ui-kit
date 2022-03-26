@@ -1,4 +1,4 @@
-import styled, {
+import {
   css,
   FlattenInterpolation,
   FlattenSimpleInterpolation,

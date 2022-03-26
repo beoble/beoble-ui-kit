@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 import { RiChatHeartFill } from "react-icons/ri";
 import { MdOutlineClose, MdSend } from "react-icons/md";
 import { IChatProps } from "./type";

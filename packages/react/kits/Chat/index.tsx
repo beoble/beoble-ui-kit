@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { RiChatHeartFill } from "react-icons/ri";
-import { MdOutlineClose } from "react-icons/md";
+import { MdOutlineClose, MdSend } from "react-icons/md";
 import { IChatProps } from "./type";
 import { animated, useChain, useSpring, useSpringRef } from "react-spring";
+import Button from "../../components/Button";
 
 const ChatContainer = styled.div`
   position: fixed;
@@ -11,33 +12,6 @@ const ChatContainer = styled.div`
   right: 30px;
   z-index: 1000 !important;
 `;
-
-const ChatButtonBounceIn = keyframes`
-  0% { transform: scale(1); opacity: 1 }
-  70% { transform: scale(1.1); opacity: 0.7 }
-  80% { transform: scale(1.1); opacity: 0.9 }
-  100% { transform: scale(0); opacity: 1}
-`;
-
-const ChatButtonBounceOut = keyframes`
-  0% { transform: scale(0); opacity: 1 }
-  50% { transform: scale(1.1); opacity: .7; }
-  60% { transform: scale(0.6); opacity: 1 }
-  80% { transform: scale(0.85) }
-  100% { transform: scale(1) }
-`;
-
-const ChatBoxBonceEnter = keyframes`
-  0% { transform: scale(0); opacity: 1 }
-  50% { transform: scale(1.1); opacity: .7; }
-  60% { transform: scale(0.85); opacity: 1 }
-  100% { transform: scale(1) }
-`;
-const ChatBoxBonceExit = keyframes`
-  0% { transform: scale(1); opacity: 1 }
-  70% { transform: scale(1.1); opacity: 0.7 }
-  80% { transform: scale(1.1); opacity: 0.9 }
-  100% { transform: scale(0); opacity: 1}`;
 
 interface IChatButtonProps {
   enter?: boolean;
@@ -56,6 +30,8 @@ const ChatButton = styled(animated.button)<IChatButtonProps>`
 `;
 
 const ChatBox = styled(animated.div)<IChatButtonProps>`
+  display: flex;
+  flex-direction: column;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -67,6 +43,44 @@ const ChatBox = styled(animated.div)<IChatButtonProps>`
   box-shadow: rgb(0 0 0 / 30%) 0px 12px 60px 5px !important;
   transform-origin: bottom right;
   transform: scale(0);
+`;
+
+const ChatBoxHeader = styled.div`
+  padding: 12px 16px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background-color: #5a9ded;
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px rgba(0, 0, 0, 0.1) inset,
+    0 2px 1px -1px rgba(255, 255, 255, 0.5) inset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const ChatArea = styled.div`
+  flex: 1;
+`;
+
+const ChatInputContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  padding: 8px;
+  margin-top: auto;
+`;
+
+const ChatInput = styled.input`
+  width: 100%;
+  background-color: #f2f2f3;
+  border: none;
+  padding: 8px 32px 8px 12px;
+  border-radius: 50vh;
+
+  &:focus-visible {
+    outline: none;
+  }
 `;
 
 const Notification = styled.div`
@@ -105,8 +119,8 @@ const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
   });
 
   const bounceEnter = {
-    range: [0, 0.5, 0.6, 0.8, 1],
-    output: [0, 1.1, 0.8, 0.9, 1],
+    range: [0, 0.4, 0.6, 0.8, 1],
+    output: [0, 1.1, 1.1, 0.9, 1],
   };
 
   const bounceExit = {
@@ -138,12 +152,28 @@ const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
         )}
       </ChatButton>
       <ChatBox
-        onClick={() => setIsEntered(false)}
         style={{
           scale: boxSpring.x.to(isEntered ? bounceEnter : bounceExit),
         }}
       >
-        <MdOutlineClose />
+        <ChatBoxHeader>
+          Beoble
+          <Button
+            style={{ backgroundColor: "none" }}
+            onClick={() => {
+              setIsEntered(false);
+            }}
+          >
+            <MdOutlineClose fontSize={16} />
+          </Button>
+        </ChatBoxHeader>
+        <ChatArea></ChatArea>
+        <ChatInputContainer>
+          <ChatInput placeholder="Send Message" />
+          <Button style={{ position: "absolute", right: "20px" }}>
+            <MdSend />
+          </Button>
+        </ChatInputContainer>
       </ChatBox>
     </ChatContainer>
   );

@@ -51,7 +51,10 @@
     "webpack-cli": "^4.9.2"
   },
   "scripts": {
+    "prepare": "yarn run clean && yarn run build",
+    "clean": "rm -rf dist",
     "build": "webpack",
+    "build:example": "yarn prepare && cd example && yarn install && yarn run build",
     "test": "yarn test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

@@ -2,11 +2,19 @@
   "name": "beoble-ui-kit",
   "version": "0.0.1",
   "description": "beoble react sdk",
-  "main": "index.js",
   "homepage": "http://kryptonium.github.io/beoble-ui-kit",
+  "main": "dist/index.js",
+  "unpkg": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "directories": {
-    "example": "example"
+    "example": "example",
+    "dist": "dist",
+    "test": "test"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

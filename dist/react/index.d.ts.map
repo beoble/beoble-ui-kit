@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../packages/react/index.ts"],"names":[],"mappings":"AAAA,OAAO,IAAI,MAAM,aAAa,CAAC;AAE/B,OAAO,KAAK,IAAI,MAAM,aAAa,CAAC;AAEpC,eAAe,IAAI,CAAC"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../packages/react/index.ts"],"names":[],"mappings":"AAAA,OAAO,IAAI,MAAM,aAAa,CAAC;AAE/B,cAAc,aAAa,CAAC;AAE5B,eAAe,IAAI,CAAC"}

@@ -16,7 +16,12 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    filename: "[name].js",
+    filename: "react/index.js",
     path: path.resolve(__dirname, "dist"),
+    libraryTarget: "umd",
+    library: "@kryptonium/beoble-ui-kit",
+    umdNamedDefine: true,
+    globalObject: "this",
   },
+  devtool: "source-map",
 };

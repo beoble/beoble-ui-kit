@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Web3 from "web3";
+import Chat from "@kryptonium/bebole-ui-kit/dist/react";
 import ConnectButton from "../components/Button/ConnectButton";
 import { useWeb3Context } from "../components/web3Context";
 import styles from "../styles/Home.module.css";

@@ -111,9 +111,9 @@ const Profile: React.FC = () => {
           setIsOpen(!isOpen);
         }}
       >
-        <AddressP>bamnenim.eth</AddressP>
+        <AddressP>iloveape88.eth</AddressP>
         <Avatar
-          src="https://media-exp1.licdn.com/dms/image/C5603AQGQJWAskNWE6A/profile-displayphoto-shrink_800_800/0/1647142782272?e=1653523200&v=beta&t=CdKb2PWVXS3vqJ1mnOR6Wj8Wlg4mAi3ps7xKloU9yV8"
+          src="https://lh3.googleusercontent.com/0zOSheuS9qYJbH9PkOoT8zc-0xHTdUNmuPfy4G4qFysNWO4Qw0OaiXEUdDNK6f1HnyZ8DAhW-8MjW9OBzu1gxWhI-wFsS5oexDFwaYo=s0"
           size={20}
           shape="circle"
         />
@@ -126,16 +126,13 @@ const Profile: React.FC = () => {
           </SettingButton>
 
           <Avatar
-            src="https://media-exp1.licdn.com/dms/image/C5603AQGQJWAskNWE6A/profile-displayphoto-shrink_800_800/0/1647142782272?e=1653523200&v=beta&t=CdKb2PWVXS3vqJ1mnOR6Wj8Wlg4mAi3ps7xKloU9yV8"
+            src="https://lh3.googleusercontent.com/0zOSheuS9qYJbH9PkOoT8zc-0xHTdUNmuPfy4G4qFysNWO4Qw0OaiXEUdDNK6f1HnyZ8DAhW-8MjW9OBzu1gxWhI-wFsS5oexDFwaYo=s0"
             size={80}
             shape="circle"
           />
-          <AddressP style={{ marginTop: "10px" }}>bamnenim.eth</AddressP>
+          <AddressP style={{ marginTop: "10px" }}>iloveape88.eth</AddressP>
           <Desciption>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            The only offcial beoble profile for iloveape88.eth. I am true crypto & NFT believer and enthusiast!! | NFT Collector | l Like Apes | Dreamer | Art Enthusiast | Investment | Organic
           </Desciption>
         </ProfileDetailContainer>
       </AddressContainer>

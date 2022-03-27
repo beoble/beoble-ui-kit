@@ -12,7 +12,7 @@ This package contains
 
 [Storybook](https://kryptonium-group.github.io/beoble-ui-kit)
 
-Demo (Comming Soon)
+[Demo] (https://beoble-ui-kit.vercel.app/)
 
 ## Getting Started
 

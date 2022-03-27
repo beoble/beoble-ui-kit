@@ -149,6 +149,13 @@ const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
     setChatInput(e.target.value);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      onChatInputChange(e as unknown as React.ChangeEvent<HTMLInputElement>);
+      submitChatting();
+    }
+  };
+
   const buttonApi = useSpringRef();
   const buttonSpring = useSpring({
     ref: buttonApi,
@@ -223,6 +230,7 @@ const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
             placeholder="Send Message"
             value={chatInput}
             onChange={onChatInputChange}
+            onKeyDown={handleKeyDown}
           />
           <Button
             style={{ position: "absolute", right: "20px" }}

@@ -97,7 +97,7 @@ const ProfileDetailContainer = styled(animated.div)`
   transform-origin: top left;
 `;
 
-const Profile: React.FC = ({}) => {
+const Profile: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const spring = useSpring({
     transform: isOpen ? "scale(1)" : "scale(0)",

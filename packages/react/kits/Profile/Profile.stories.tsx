@@ -7,6 +7,6 @@ export default {
   component: Profile,
 } as ComponentMeta<typeof Profile>;
 
-export const Default: ComponentStory<typeof Profile> = ({}) => {
+export const Default: ComponentStory<typeof Profile> = () => {
   return <Profile />;
 };

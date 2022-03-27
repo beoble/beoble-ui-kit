@@ -114,3 +114,12 @@
     flex-direction: column;
   }
 }
+
+.appbar {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 16px;
+  width: calc(100% - 4rem);
+}

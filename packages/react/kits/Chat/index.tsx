@@ -60,6 +60,23 @@ const ChatBoxHeader = styled.div`
 
 const ChatArea = styled.div`
   flex: 1;
+  overflow-y: scroll;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: end;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: #f2f2f3;
+  }
 `;
 
 const ChatInputContainer = styled.div`
@@ -99,9 +116,38 @@ const Notification = styled.div`
   justify-content: center;
 `;
 
+export const ChatBubble = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  background-color: #f2f2f3;
+  width: fit-content;
+  max-width: 180px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-bottom: 12px;
+`;
+
+const lorem =
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+
 const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
   const [isEntered, setIsEntered] = useState(false);
   const [notifications, setNotifications] = useState(0);
+  const [chattings, setChattings] = useState<string[]>([lorem]);
+  const [chatInput, setChatInput] = useState("");
+
+  const submitChatting = () => {
+    if (chatInput) {
+      setChattings([...chattings, chatInput]);
+      setChatInput("");
+    }
+  };
+
+  const onChatInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChatInput(e.target.value);
+  };
 
   const buttonApi = useSpringRef();
   const buttonSpring = useSpring({
@@ -167,10 +213,21 @@ const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
             <MdOutlineClose fontSize={16} />
           </Button>
         </ChatBoxHeader>
-        <ChatArea></ChatArea>
+        <ChatArea>
+          {chattings.map((chatting) => (
+            <ChatBubble>{chatting}</ChatBubble>
+          ))}
+        </ChatArea>
         <ChatInputContainer>
-          <ChatInput placeholder="Send Message" />
-          <Button style={{ position: "absolute", right: "20px" }}>
+          <ChatInput
+            placeholder="Send Message"
+            value={chatInput}
+            onChange={onChatInputChange}
+          />
+          <Button
+            style={{ position: "absolute", right: "20px" }}
+            onClick={submitChatting}
+          >
             <MdSend />
           </Button>
         </ChatInputContainer>

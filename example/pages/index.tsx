@@ -1,34 +1,19 @@
+import { Chat, Profile } from "@kryptonium/bebole-ui-kit/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Web3 from "web3";
-import Chat from "@kryptonium/bebole-ui-kit/dist/react";
 import ConnectButton from "../components/Button/ConnectButton";
 import { useWeb3Context } from "../components/web3Context";
 import styles from "../styles/Home.module.css";
 
-const initWeb3 = (provider: any) => {
-  const web3: any = new Web3(provider);
-  web3.eth.extend({
-    methods: [
-      {
-        name: "chainId",
-        call: "eth_chainId",
-        outputFormatter: web3.utils.hexToNumber,
-      },
-    ],
-  });
-  return web3;
-};
-
 const Home: NextPage = () => {
-  const [connected, setConnected] = useState(false);
   const { connect, address } = useWeb3Context();
+  console.log(Chat);
 
   useEffect(() => {
-    console.log(address);
-  }, [address]);
+    console.log(Chat);
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -38,15 +23,21 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {address ? (
-        <main className={styles.main}>
-          <h1 className={styles.title}>
-            Welcome to <a href="https://beoble.io">Beoble!</a>
-          </h1>
+        <>
+          <div className={styles.appbar}>
+            <Profile />
+          </div>
+          <Chat />
+          <main className={styles.main}>
+            <h1 className={styles.title}>
+              Welcome to <a href="https://beoble.io">Beoble!</a>
+            </h1>
 
-          <p className={styles.description}>
-            your address is <code className={styles.code}>{address}</code>
-          </p>
-        </main>
+            <p className={styles.description}>
+              your address is <code className={styles.code}>{address}</code>
+            </p>
+          </main>
+        </>
       ) : (
         <main className={styles.main}>
           <h1 className={styles.title}>

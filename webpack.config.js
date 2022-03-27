@@ -1,4 +1,5 @@
-import path from "path";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require("path");
 
 module.exports = {
   mode: "development",
@@ -24,4 +25,8 @@ module.exports = {
     globalObject: "this",
   },
   devtool: "source-map",
+  externals: {
+    react: "commonjs react",
+    "react-dom": "commonjs react-dom",
+  },
 };

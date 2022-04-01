@@ -5,6 +5,7 @@ import { MdOutlineClose, MdSend } from "react-icons/md";
 import { IChatProps } from "./type";
 import { animated, useChain, useSpring, useSpringRef } from "react-spring";
 import Button from "../../components/Button";
+import { Bubble } from "../../components/Bubble";
 
 const ChatContainer = styled.div`
   position: fixed;
@@ -116,19 +117,6 @@ const Notification = styled.div`
   justify-content: center;
 `;
 
-export const ChatBubble = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px;
-  background-color: #f2f2f3;
-  width: fit-content;
-  max-width: 180px;
-  border-radius: 12px;
-  font-size: 12px;
-  margin-bottom: 12px;
-`;
-
 const lorem =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
 
@@ -222,7 +210,7 @@ const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
         </ChatBoxHeader>
         <ChatArea>
           {chattings.map((chatting) => (
-            <ChatBubble>{chatting}</ChatBubble>
+            <Bubble>{chatting}</Bubble>
           ))}
         </ChatArea>
         <ChatInputContainer>

@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { RiChatHeartFill } from "react-icons/ri";
 import { MdOutlineClose, MdSend } from "react-icons/md";
 import { IChatProps } from "./type";
 import { animated, useChain, useSpring, useSpringRef } from "react-spring";
-import Button from "../../components/Button";
+import Button from "../../elements/Button";
 import { Bubble } from "../../components/Bubble";
+import { color, ColorProps } from "styled-system";
 
 const ChatContainer = styled.div`
   position: fixed;
@@ -46,11 +47,12 @@ const ChatBox = styled(animated.div)<IChatButtonProps>`
   transform: scale(0);
 `;
 
-const ChatBoxHeader = styled.div`
+const ChatBoxHeader = styled.div<ColorProps>`
+  background-color: #5a9ded;
+  ${color}
   padding: 12px 16px;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
-  background-color: #5a9ded;
   color: #ffffff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px rgba(0, 0, 0, 0.1) inset,
     0 2px 1px -1px rgba(255, 255, 255, 0.5) inset;
@@ -126,6 +128,8 @@ const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
   const [chattings, setChattings] = useState<string[]>([lorem]);
   const [chatInput, setChatInput] = useState("");
 
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
   const submitChatting = () => {
     if (chatInput) {
       setChattings([...chattings, chatInput]);
@@ -173,6 +177,13 @@ const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
     console.log("isEntered ?: ", isEntered);
   }, [isEntered]);
 
+  useEffect(() => {
+    console.log(chatContainerRef.current);
+    if (chatContainerRef.current)
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+  }, [chatContainerRef, chattings]);
+
   useChain(isEntered ? [buttonApi, boxApi] : [boxApi, buttonApi]);
 
   return (
@@ -197,18 +208,21 @@ const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
           scale: boxSpring.x.to(isEntered ? bounceEnter : bounceExit),
         }}
       >
-        <ChatBoxHeader>
+        <ChatBoxHeader backgroundColor="#333333">
           Beoble
           <Button
             style={{ backgroundColor: "none" }}
             onClick={() => {
               setIsEntered(false);
             }}
+            padding={0}
+            backgroundColor="transparent"
+            color="#ffffff"
           >
             <MdOutlineClose fontSize={16} />
           </Button>
         </ChatBoxHeader>
-        <ChatArea>
+        <ChatArea ref={chatContainerRef}>
           {chattings.map((chatting) => (
             <Bubble>{chatting}</Bubble>
           ))}
@@ -223,6 +237,8 @@ const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
           <Button
             style={{ position: "absolute", right: "20px" }}
             onClick={submitChatting}
+            backgroundColor="transparent"
+            padding={0}
           >
             <MdSend />
           </Button>

@@ -10,3 +10,7 @@ export default {
 export const Default: ComponentStory<typeof Profile> = () => {
   return <Profile />;
 };
+
+export const ProfileBtnDefault: ComponentStory<typeof Profile> = () => {
+  return <Profile />;
+};

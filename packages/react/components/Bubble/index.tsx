@@ -1,7 +1,9 @@
+import React from "react";
 import styled from "styled-components";
-import { IBubbleProps } from "./type";
+import Avatar from "../../elements/Avatar";
+import { IBubbleProps, IMessage } from "./type";
 
-export const Bubble = styled.div<IBubbleProps>`
+export const BubbleContainer = styled.div<IBubbleProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,3 +15,25 @@ export const Bubble = styled.div<IBubbleProps>`
   font-size: 12px;
   margin-bottom: 12px;
 `;
+
+const MessageContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const TimeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: 8px;
+`;
+
+export const Bubble: React.FC<IMessage> = ({ message, sender, time }) => {
+  return (
+    <MessageContainer>
+      <Avatar size={32} shape="circle" src={sender.profile} />
+      <BubbleContainer>{message}</BubbleContainer>
+      <TimeContainer>{time}</TimeContainer>
+    </MessageContainer>
+  );
+};

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { animated, useSpring } from "react-spring";
 import { MdSettings, MdEditNote } from "react-icons/md";
-import Button from "../../components/Button";
-import Avatar from "../../components/Avatar";
+import Button from "../../elements/Button";
+import Avatar from "../../elements/Avatar";
 
 const ProfileContainer = styled.div`
   position: relative;

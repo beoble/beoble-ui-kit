@@ -13,12 +13,12 @@ export const BubbleContainer = styled.div<IBubbleProps>`
   max-width: 180px;
   border-radius: 12px;
   font-size: 12px;
-  margin-bottom: 12px;
 `;
 
 const MessageContainer = styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: 12px;
 `;
 
 const TimeContainer = styled.div`

@@ -6,4 +6,19 @@ export declare enum BreakPoints {
     Desktop = 1328
 }
 export declare type Device = "mobile" | "tablet" | "desktop";
+export declare const Colors: {
+    neutral: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+    };
+    ios: {
+        success: string;
+        failure: string;
+    };
+};
 //# sourceMappingURL=index.d.ts.map

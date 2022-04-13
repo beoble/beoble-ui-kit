@@ -13,6 +13,7 @@ export const BubbleContainer = styled.div<IBubbleProps>`
   max-width: 180px;
   border-radius: 12px;
   font-size: 12px;
+  margin-right: 8px;
 `;
 
 const MessageContainer = styled.div`
@@ -31,7 +32,12 @@ const TimeContainer = styled.div`
 export const Bubble: React.FC<IMessage> = ({ message, sender, time }) => {
   return (
     <MessageContainer>
-      <Avatar size={32} shape="circle" src={sender.profile} />
+      <Avatar
+        size={32}
+        shape="circle"
+        src={sender.profile}
+        style={{ marginRight: 8 }}
+      />
       <BubbleContainer>{message}</BubbleContainer>
       <TimeContainer>{time}</TimeContainer>
     </MessageContainer>

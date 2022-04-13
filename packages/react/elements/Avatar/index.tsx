@@ -27,9 +27,10 @@ const Avatar: React.FC<IAvatarProps> = ({
   shape = "square",
   src,
   alt,
+  style,
 }) => {
   return (
-    <AvatarContainer width={size} height={size} shape={shape}>
+    <AvatarContainer width={size} height={size} shape={shape} style={style}>
       <AvatarImage src={src} alt={alt}>
         {children}
       </AvatarImage>

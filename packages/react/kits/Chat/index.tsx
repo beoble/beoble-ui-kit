@@ -224,7 +224,15 @@ const Chat: React.FC<IChatProps> = ({ children, color, backgroundColor }) => {
         </ChatBoxHeader>
         <ChatArea ref={chatContainerRef}>
           {chattings.map((chatting) => (
-            <Bubble>{chatting}</Bubble>
+            <Bubble
+              message={chatting}
+              time={0}
+              sender={{
+                account: "",
+                profile: "",
+                nickname: "",
+              }}
+            />
           ))}
         </ChatArea>
         <ChatInputContainer>

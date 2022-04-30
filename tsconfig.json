@@ -29,7 +29,10 @@
     "preserveSymlinks": true,
     "sourceMap": true,
     "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "paths": {
+      "react/*": ["./react/*"]
+    }
   },
   "include": ["./packages/**/*"],
   "exclude": ["node_modules", "example"]
